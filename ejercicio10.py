@@ -21,7 +21,7 @@ fin Persona
 #Lista de personas entre 20 y 30 años
 Algoritmo:
     Constantes:
-    familias: TABLA[PERSONA]
+    familias: TABLA[Persona]
     edad_MIN: ENTERO 
     edad_MAX: ENTERO 
 
@@ -89,7 +89,7 @@ fin edades
 #Envejecer a todas las personas registradas
 Algoritmo:
     Entrada 
-        familias: tabla[Persona]
+        familias: TABLA[Persona]
 
     Precondicion 
         familias ≠ NULO 
@@ -124,3 +124,62 @@ Algoritmo:
 
                 familias[i].edad <- familias[i].edad + 1
             fin si
+            i <- i +1 
+        fin repetir 
+
+        Postcondicion 
+        Se han incrementado todos los atributos edad a las celdas no VACIO y no BORRADO
+
+#Lista de personas huérfanas menores de 15 años 
+Algoritmo
+    Entrada 
+    familias: TABLA[Persona]
+    Resulatado: TABLA [ENTERO][1,500]
+
+    Precondicion 
+    familias ≠ NULO 
+
+    Constantes
+        MIN: ENTERO <- indice_min (familias)
+        MAX: ENTERO <- indice_max (familias)
+        MIN_HUERF: ENTERO <- indice_min(resultado)
+        MAX_HUERF: ENTERO <- indice_max (resultado)
+        INFINITO: ENTERO <- ENTERO_MIN
+        HUÉRFANO: ENTERO <- INFINITO
+        BORRADO: ENTERO <- HUERFANO + 1
+        VACIO:ENTERO <-  HUERFANO +2
+
+    Variable
+    i: ENTERO 
+    j:ENTERO 
+
+    Inicializacion 
+    i <-MIN 
+    j <- MIN_HUERF
+    resultado [j] <- VACIO 
+
+    Realizacion 
+    hasta que 
+        familias [i].id = VACIO 
+    o si no 
+        i > MAX 
+
+        invariante 
+            ???
+        variante de control 
+            MAX - i +1
+
+    repetir 
+        si 
+            familias[i].id ≠ BORRADO
+        y entonces 
+
+            (familias[i].padre = HUERFANO
+            o
+            familias[i].madre = HUERFANO)
+        entonces 
+            Resultado[j] <- familias[i].id
+        fin si 
+        i <- i +1
+
+    fin huerfanos 
