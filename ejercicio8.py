@@ -10,3 +10,8 @@ precondición
   ca ≠ NULO
   separador ≠ NULO
   está_definido(componentes)
+variable
+  L : ENTERO # La longitud de `ca'
+  k : ENTERO # Última ocurrencia del `separador' encontrada
+  i : ENTERO # Índice del siguiente componente a registrar
+  r : ENTERO # Posición siguiente ocurrencia del `separador'
