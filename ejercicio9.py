@@ -78,3 +78,36 @@ tipo PALABRA estructura
         # El índice de la palabra siguiente
     palabra : CADENA
 fin PALABRA
+
+Algoritmo insertar 
+inserción(palabra : PALABRA ; diccionario : TABLA[PALABRA])
+    # Insertar `palabra' en `diccionario'.
+Precondición
+    palabra ≠ NULO
+    está_definido(diccionario)
+    no está_completo(diccionario)
+realización
+    # Buscar la primera celda libre en `diccionario'
+    k ← libre(diccionario)
+    # Guardar palabra en la celda de índice k
+    diccionario[k] ← palabra
+    # Buscar la posición de inserción de la `palabra' en orden
+    # alfabético en `diccionario'
+    posición ← coloca(palabra, diccionario)
+    # Realiza la inserción efectiva
+    insertar(k, diccionario, posición)
+postcondición
+    # `diccionario' (ya) no está vacío
+    no está_vacío(diccionario)
+    # `palabra' está colocada en una celda de la tabla efectiva
+    palabra ∈ sub_tabla
+        (
+            diccionario,
+            índice_min(diccionario) + 1,
+            índice_max(diccionario)
+        )
+Resultado
+    Solo se modifican la celda insertada y las dos celdas
+    que la rodean en el orden alfabético
+fin inserción
+
