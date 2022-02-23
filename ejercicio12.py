@@ -40,4 +40,8 @@ precondición
 variable
     cuadrado : ENTERO # Un cuadrado perfecto k2
     impar : ENTERO # Un impar de la suite 2xk + 1
+inicialización
+    k ← 0 # el entero para el que se calcula el cuadrado
+    cuadrado ← 0# cuadrado = k2
+    impar ← 1 # impar = 2xk + 1
 
