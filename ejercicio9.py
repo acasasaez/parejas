@@ -45,3 +45,36 @@ realización
             i ≤ I_MAX + 1
             Resultado = i o Resultado = AUSENTE
     fin repetir
+postcondición
+    # AUSENTE si no hay palabra con la inicial `inicial' en
+    # sub_tabla(
+                    # diccionario,
+                    # índice_min(diccionario),
+                    # índice_max(diccionario)
+                # )
+    Resultado = AUSENTE => (∀k ∈ Z)
+        (
+        índice_min(diccionario) ≤ k ≤ índice_max(diccionario) =>
+        ítem(diccionario[k], 1) ≠ inicial
+        )
+    # Resultado es el índice de una palabra de inicial `inicial' en
+    # sub_tabla(
+    # diccionario,
+    # índice_min(diccionario),
+    # índice_max(diccionario)
+    # )
+    Resultado ≠ AUSENTE =>
+        (
+            índice_min(diccionario) ≤ Resultado ≤índice_max(diccionario)
+        y
+            ítem(diccionario[Resultado], 1) = inicial
+        )
+fin índice_palabra
+
+tipo PALABRA estructura
+    anterior : ENTERO
+        # El índice de la palabra que precede a esta palabra
+    siguiente : ENTERO
+        # El índice de la palabra siguiente
+    palabra : CADENA
+fin PALABRA
