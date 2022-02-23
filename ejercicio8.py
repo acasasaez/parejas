@@ -15,3 +15,11 @@ variable
   k : ENTERO # Última ocurrencia del `separador' encontrada
   i : ENTERO # Índice del siguiente componente a registrar
   r : ENTERO # Posición siguiente ocurrencia del `separador'
+inicialización
+    L ← longitud(ca) # Índice del último carácter
+    k ← 0
+        # Índice de la última ocurrencia del `separador'
+        # encontrada
+    i ← 1 # Índice del siguiente componente a registrar
+    r ← posición(ca, 1, L)
+        # Búsqueda de la primera ocurrencia de `separador'
