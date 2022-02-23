@@ -6,16 +6,16 @@ Entrada
   separador : CARACTER # El carácter que separa las cadenas
   componentes : TABLA[CADENA] # Los componentes de `ca'
   dimensión : ENTERO # La cantidad de componentes
-precondición
+Precondición
   ca ≠ NULO
   separador ≠ NULO
   está_definido(componentes)
-variable
+Variable
   L : ENTERO # La longitud de `ca'
   k : ENTERO # Última ocurrencia del `separador' encontrada
   i : ENTERO # Índice del siguiente componente a registrar
   r : ENTERO # Posición siguiente ocurrencia del `separador'
-inicialización
+Inicialización
     L ← longitud(ca) # Índice del último carácter
     k ← 0
         # Índice de la última ocurrencia del `separador'
@@ -46,3 +46,9 @@ repetir
             # es la última ocurrencia de `separador'
     #Ajusta la cantidad de componentes
     i ← i+1
+    afirmación
+        componer(componentes, 1, i-1, separador) = sub_cadena(ca, 1, r–1)
+            # componentes[1..i-1] contiene descomposición de ca[1..r-1]
+        dimensión = i-1
+    # La última ocurrencia encontrada de `separador' en el índice k
+    k ← r
