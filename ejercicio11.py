@@ -51,3 +51,5 @@ resto_2(a, b : ENTERO) : ENTERO
     #
     # b x q ≤ a < b x (q+1) y r = a — b x q =>
     # a — b x (q+1) < 0 et r = a — b x (q+1) + b
+precondición
+    a ≥ 0 ; b > 0
