@@ -55,3 +55,15 @@ precondición
     a ≥ 0 ; b > 0
 inicialización
     Resultado ← a
+realización
+    repetir
+        Resultado ← Resultado – b
+    hasta que
+        Resultado < 0
+    fin repetir
+    afirmación
+        Resultado = a — b x (cociente(a, b) + 1)
+    Resultado ← Resultado + b
+    afirmación
+        Resultado = a — b x (cociente(a, b) + 1) + b =>
+        Resultado = a — b x cociente(a, b)
