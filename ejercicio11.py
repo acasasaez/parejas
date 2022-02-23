@@ -44,5 +44,6 @@ postcondición
     # Es el máximo entero que tiene esta propiedad
     (∀k ∈ N)(n ≠ 0 o si no m ≠ 0)
     (k > Resultado => resto(n, k) ≠ 0 o si no resto(m, k) ≠ 0)
+fin mcd  
 
 
