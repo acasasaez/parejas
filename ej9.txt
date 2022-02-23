@@ -1,0 +1,80 @@
+Algoritmo índice_palabra
+    # La primera palabra de `diccionario' que empieza por
+    # `inicial'.
+    Entrada:
+        inicial : CARACTER
+            # La inicial a buscar
+        diccionario : TABLA[CADENA]
+            # Objetivo de la búsqueda
+    Resultado : ENTERO
+    Precondición:
+        es_alfabético(inicial)
+        está_definido(diccionario)
+    Constante:
+        I_MIN : ENTERO ← índice_min(diccionario)
+        I_MAX : ENTERO ← índice_max(diccionario)
+        AUSENTE : ENTERO ← ???
+    Variable:
+        i : ENTERO # Índice siguiente celda a observar
+    Inicialización:
+        i ← I_MIN
+        Resultado = AUSENTE # Todavía no se ha encontrado     nada
+    Realización:
+        mientras que:
+            i ≤ I_MAX et Resultado = AUSENTE
+            invariante:
+                (∀k ∈ Z)(I_MIN ≤ k < i => Resultado = AUSENTE) <=> (∀k ∈ Z)
+                (I_MIN ≤ k < i => ítem(diccionario[k], 1) ≠ inicial
+            variante de control:
+                I_MAX – i + 1
+        repetir:
+            si:
+                ítem(diccionario[i], 1) = inicial
+            entonces:
+                afirmación:
+                    i ≤ I_MAX
+                    (∀k ∈ Z)(I_MIN ≤ k < i => Resultado = AUSENTE) et
+                    ítem(diccionario[i], 1) = inicial
+                    Resultado ← i
+                afirmación:
+                    i ≤ I_MAX
+                    Resultado = i ≠ AUSENTE
+                fin si
+            i ← i + 1
+            afirmación:
+                i ≤ I_MAX + 1
+                Resultado = i o Resultado = AUSENTE
+            fin repetir
+    postcondición:
+        # AUSENTE si no hay palabra con la inicial `inicial' en
+        # sub_tabla(
+                        # diccionario,
+                        # índice_min(diccionario),
+                        # índice_max(diccionario)
+                    # )
+        Resultado = AUSENTE => (∀k ∈ Z)
+            (
+            índice_min(diccionario) ≤ k ≤ índice_max(diccionario) =>
+            ítem(diccionario[k], 1) ≠ inicial
+            )
+        # Resultado es el índice de una palabra de inicial `inicial' en
+        # sub_tabla(
+        # diccionario,
+        # índice_min(diccionario),
+        # índice_max(diccionario)
+        # )
+        Resultado ≠ AUSENTE =>
+            (
+                índice_min(diccionario) ≤ Resultado ≤índice_max(diccionario)
+            y
+                ítem(diccionario[Resultado], 1) = inicial
+            )
+fin índice_palabra
+
+tipo PALABRA estructura
+    anterior : ENTERO
+        # El índice de la palabra que precede a esta palabra
+    siguiente : ENTERO
+        # El índice de la palabra siguiente
+    palabra : CADENA
+fin PALABRA
