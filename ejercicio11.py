@@ -67,3 +67,6 @@ realización
     afirmación
         Resultado = a — b x (cociente(a, b) + 1) + b =>
         Resultado = a — b x cociente(a, b)
+postcondición
+    Resultado = a – b x cociente(a, b)
+fin resto_2
