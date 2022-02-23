@@ -91,4 +91,4 @@ Realizacion
     Resultado <- cadena(cifra(dividiendo))⊕ Resultado 
     #... y el signo de "n"
     Resultado < - cadena (signo(c(n))) ⊕ Resultado
-fin conversion2E 
+fin de conversion2E 
