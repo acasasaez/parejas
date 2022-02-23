@@ -51,7 +51,7 @@ Realizacion
     #k es el número de divisiones realizadas 
 
 
-        dividiendo = abs (n)* BASE**-k 
+        dividiendo = abs(n)* BASE**-k 
     variante de control 
         cociente (dividendo, BASE)
 
