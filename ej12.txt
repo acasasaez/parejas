@@ -57,5 +57,3 @@ Algoritmo tabla_de_los_cuadrados:
     antiguo(límite) = límite
     (∀k ∈ Z)(índice_min(cuadrados) ≤ k et k2 ≤ límite =>cuadrados[k] = k2 )
   fin tabla_de_los_cuadrados
-
-
