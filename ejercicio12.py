@@ -44,4 +44,18 @@ inicialización
     k ← 0 # el entero para el que se calcula el cuadrado
     cuadrado ← 0# cuadrado = k2
     impar ← 1 # impar = 2xk + 1
+realización
+    hasta que
+        cuadrado > límite
+    repetir
+        cuadrados[k] ← cuadrado
+        cuadrado ← cuadrado + impar
+        impar ← impar + 2
+        k ← k +1
+    fin repetir
+postcondición
+    antiguo(límite) = límite
+    (∀k ∈ Z)(índice_min(cuadrados) ≤ k et k2 ≤ límite =>cuadrados[k] = k2 )
+fin tabla_de_los_cuadrados
+
 
