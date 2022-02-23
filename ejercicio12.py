@@ -26,3 +26,18 @@ Postcondición
   #`raiz`es la raiz cuadrada de `n`
   raiz**2 <= n< (raiz + 1)**2 <=> raiz = √n
 fin raiz_cuadrada_entera
+
+
+Algoritmo tabla_de_los_cuadrados
+    # La serie en `cuadrados' de los cuadrados perfectos inferiores
+    # a `límite'.
+Entrada
+    cuadrados : TABLEAU[ENTERO] # La tabla a inicializar
+    límite : ENTERO # El límite superior de los cuadrados a calcular
+precondición
+    límite ≥ 0
+    límite ≤ índice_max(cuadrados) x índice_max(cuadrados)
+variable
+    cuadrado : ENTERO # Un cuadrado perfecto k2
+    impar : ENTERO # Un impar de la suite 2xk + 1
+
