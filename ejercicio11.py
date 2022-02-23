@@ -46,4 +46,8 @@ postcondición
     (k > Resultado => resto(n, k) ≠ 0 o si no resto(m, k) ≠ 0)
 fin mcd  
 
-
+resto_2(a, b : ENTERO) : ENTERO
+    # El resto de la división euclidiana de `a' por `b'.
+    #
+    # b x q ≤ a < b x (q+1) y r = a — b x q =>
+    # a — b x (q+1) < 0 et r = a — b x (q+1) + b
