@@ -66,3 +66,11 @@ afirmación
     ítem(ca, k) = separador
     r = posición(ca, k+1, L, separador)
 fin mientras que
+si
+    k < L
+entonces
+    afirmación
+        r = AUSENTE
+    componentes[i] ← sub_cadena(ca, k+1, L)
+    dimensión ← i
+fin si
