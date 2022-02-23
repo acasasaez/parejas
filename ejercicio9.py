@@ -16,3 +16,6 @@ constante
     AUSENTE : ENTERO ← ???
 variable
     i : ENTERO # Índice siguiente celda a observar
+inicialización
+    i ← I_MIN
+    Resultado = AUSENTE # Todavía no se ha encontrado     nada
