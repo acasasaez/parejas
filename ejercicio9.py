@@ -111,3 +111,28 @@ Resultado
     que la rodean en el orden alfabético
 fin inserción
 
+Algoritmo eliminacon
+eliminación(ca : CADENA ; diccionario : TABLA[PALABRA])
+    # Elimina `ca' del `diccionario'.
+Precondición
+    ca ≠ NULO
+    está_definido(diccionario)
+    no está_vacío(diccionario)
+constante
+    I_MIN : ENTERO ← índice_min(diccionario)
+    I_MAX : ENTERO ← índice_max(diccionario)
+variable
+    situación : ENTERO # El índice de la palabra a eliminar
+realización
+    situación ← índice_palabra(ca, diccionario)
+    si
+        situación ≠ AUSENTE
+    entonces
+        eliminar(diccionario, situación)
+    fin si
+postcondición
+    antiguo(ca) = ca
+Resultado 
+    La palabra de valor `ca' se ha eliminado de `diccionario'
+
+fin eliminación
