@@ -1,6 +1,6 @@
 ## Parejas
 Nuestra dirección de GitHub para este repositorio es la siguiente: [GitHub](https://github.com/acasasaez/parejas)
-https://github.com/acasasaez/parejas
+https://github.com/acasasaez/parejas .
 En este repositorio resolveremos diferentes ejercicios sobre el capítulo «Estructuras elementales».
 
 
