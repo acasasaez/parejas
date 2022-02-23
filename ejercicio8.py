@@ -23,3 +23,9 @@ inicialización
     i ← 1 # Índice del siguiente componente a registrar
     r ← posición(ca, 1, L)
         # Búsqueda de la primera ocurrencia de `separador'
+mientras que
+    k < L y r ≠ AUSENTE
+    invariante
+        (H)
+    variante de control
+        L - k
