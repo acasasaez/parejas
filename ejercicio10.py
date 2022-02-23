@@ -19,20 +19,20 @@ Clase Persona
 fin Persona 
 
 #Lista de personas entre 20 y 30 años
-Algoritmo:
-    Constantes:
+Algoritmo edades:
+Entrada:
     familias: TABLA[Persona]
     edad_MIN: ENTERO 
     edad_MAX: ENTERO 
 
-    Resultado: TABLA [1,500]
+Resultado: TABLA [1,500]
 
-    Precondicion:
+Precondicion:
         familias  ≠ NULO 
         edad_MIN ≠ NULO
         edad_MAX ≠ NULO
     
-    Constantes
+Constantes
         MIN: ENTERO <- indice_min (familias)
         MAX: ENTERO <- indice_max (familias)
         MIN_EDADES: ENTERO <- indice_min(resultado)
@@ -42,11 +42,11 @@ Algoritmo:
         BORRADO: ENTERO <- HUERFANO + 1
         VACIO:ENTERO <-  HUERFANO +2
 
-    Variable
+Variable
         i: ENTERO 
         j: ENTERO 
     
-    Inicialización 
+Inicialización 
     i: MIN 
     j: MIN_EDADES 
     Resultado [MIN_EDADES] <-  VACIO
@@ -56,7 +56,7 @@ Algoritmo:
     se inicializan con los identificadores de las celdas de sub_tabla (familias, MIN,i- 1)
     donde los identificadores no son ni BORRADO ni VACIO y la edad está entre edad_MIN y edad_MAX 
 
-    Realización 
+Realización 
     hasta que 
         familias[i].id = VACIO 
         o si no i > MAX
@@ -77,7 +77,7 @@ Algoritmo:
         i <- i +1
     fin repetir 
 
-    postcondición
+Postcondición
     #Resultado está VACIO cuando los límites de edad no están en orden
     edad_MIN> edad_MAX => Resultado[1] = VACIO
     (∀ k ∊ Z) (
@@ -87,14 +87,14 @@ Algoritmo:
 fin edades 
 
 #Envejecer a todas las personas registradas
-Algoritmo:
-    Entrada 
+Algoritmo envejecer:
+Entrada 
         familias: TABLA[Persona]
 
-    Precondicion 
+Precondicion 
         familias ≠ NULO 
 
-    Constante 
+Constante 
         MIN: ENTERO <- indice_min (familias)
         MAX: ENTERO <- indice_max (familias)
         INFINITO: ENTERO <- ENTERO_MIN
@@ -102,13 +102,13 @@ Algoritmo:
         BORRADO: ENTERO <- HUERFANO + 1
         VACIO:ENTERO <-  HUERFANO +2
 
-    Variable
+Variable
         i: ENTERO 
 
-    Inicializacion
+Inicializacion
         i <- MIN 
 
-    Realizacion 
+Realizacion 
         hasta que 
             familias[i].id = VACIO 
           o si no 
@@ -127,19 +127,19 @@ Algoritmo:
             i <- i +1 
         fin repetir 
 
-        Postcondicion 
+Postcondicion 
         Se han incrementado todos los atributos edad a las celdas no VACIO y no BORRADO
-
+fin envejecer
 #Lista de personas huérfanas menores de 15 años 
-Algoritmo
-    Entrada 
+Algoritmo huerfanos
+Entrada 
     familias: TABLA[Persona]
     Resulatado: TABLA [ENTERO][1,500]
 
-    Precondicion 
+Precondicion 
     familias ≠ NULO 
 
-    Constantes
+Constantes
         MIN: ENTERO <- indice_min (familias)
         MAX: ENTERO <- indice_max (familias)
         MIN_HUERF: ENTERO <- indice_min(resultado)
@@ -149,37 +149,40 @@ Algoritmo
         BORRADO: ENTERO <- HUERFANO + 1
         VACIO:ENTERO <-  HUERFANO +2
 
-    Variable
-    i: ENTERO 
-    j:ENTERO 
+Variable
+        i: ENTERO 
+        j:ENTERO 
 
-    Inicializacion 
-    i <-MIN 
-    j <- MIN_HUERF
-    resultado [j] <- VACIO 
+Inicializacion 
+        i <-MIN 
+        j <- MIN_HUERF
+        resultado [j] <- VACIO 
 
-    Realizacion 
-    hasta que 
-        familias [i].id = VACIO 
-    o si no 
-        i > MAX 
+Realizacion 
+        hasta que 
+             familias [i].id = VACIO 
+          o si no 
+            i > MAX 
 
-        invariante 
-            ???
-        variante de control 
-            MAX - i +1
+            invariante 
+              ???
+            variante de control 
+              MAX - i +1
 
-    repetir 
-        si 
-            familias[i].id ≠ BORRADO
-        y entonces 
+        repetir 
+            si 
+                familias[i].id ≠ BORRADO
+              y entonces 
 
-            (familias[i].padre = HUERFANO
-            o
-            familias[i].madre = HUERFANO)
-        entonces 
-            Resultado[j] <- familias[i].id
-        fin si 
-        i <- i +1
-
-    fin huerfanos 
+                (familias[i].padre = HUERFANO
+                  o
+                familias[i].madre = HUERFANO)
+            entonces 
+              Resultado[j] <- familias[i].id
+            fin si 
+            i <- i +1
+        fin repetir 
+  Postcondicion
+        Se han registrado en Resultado los identificadores de todos los
+        HUERFANOS de las celdas ni VACIO ni BORRADO
+fin huerfanos 
