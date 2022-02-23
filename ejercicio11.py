@@ -21,6 +21,28 @@ realización
         variante de control
             resto
     repetir
-
+        afirmación
+            resto > 0
+        # Preparar la siguiente división
+        dividendo ← divisor
+        divisor ← resto
+        # Calcular el siguiente resto
+        resto ← dividendo modulo divisor
+        afirmación
+            (H) : la última división de la serie ha utilizado el
+            resto de la división anterior como divisor y
+            ha dado resto como resultado.
+    fin repetir
+    afirmación
+        resto = 0
+    # El resultado es el último resto no nulo
+    Resultado ← divisor
+postcondición
+    # El MCD divide `n' y `m'
+    resto(n, Resultado) = 0
+    resto(m, Resultado) = 0
+    # Es el máximo entero que tiene esta propiedad
+    (∀k ∈ N)(n ≠ 0 o si no m ≠ 0)
+    (k > Resultado => resto(n, k) ≠ 0 o si no resto(m, k) ≠ 0)
 
 
