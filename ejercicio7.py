@@ -65,7 +65,7 @@ Realizacion
         #Resultado a aumentar de "r" en cifra 
         #El número de divisiones realizadas es k+1
 
-            dividiendo = abs (n)* BASE**-k -1
+            dividiendo = abs(n)* BASE**-k -1
 
         Resultado  <- SEPARADOR  ⊕ cadena (cifra(r))
                               ⊕ Resultado 
@@ -84,11 +84,11 @@ Realizacion
         #de "dividendo" por "BASE"; el resultado parcial es
         # Resultado  
         #El numero de divisiones efectuadas es k 
-            dividiendo = abs (n) * BASE*-K 
+            dividiendo = abs(n) * BASE*-K 
     fin repetir 
 
     #Aumentar Resultado en la ultima cifra...
     Resultado <- cadena(cifra(dividiendo))⊕ Resultado 
     #... y el signo de "n"
     Resultado < - cadena (signo(c(n))) ⊕ Resultado
-fin conversion2E
+fin conversion2E 

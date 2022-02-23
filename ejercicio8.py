@@ -52,3 +52,10 @@ repetir
         dimensión = i-1
     # La última ocurrencia encontrada de `separador' en el índice k
     k ← r
+    afirmación
+        componer(componentes, 1, i-1, separador) = sub_cadena(ca, 1, k–1)
+            # componentes[1..i-1] contiene descomposición de ca[1..k-1]
+        dimensión = i-1
+        ítem(ca, k) = separador y ítem(ca, r) = separador
+            # es la última ocurrencia de `separador'
+        r ← posición(ca, k+1, L)
